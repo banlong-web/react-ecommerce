@@ -10,12 +10,16 @@ const Home = () => {
     ))
     if (itemLength !== 0) {
         return (
-            home.map(item => (
-                <div key={item}>
-                    <h1>{item.title}</h1>
-                    {HTMLReactParser(item.content)}
-                </div>
-            ))
+            <div className='container'>
+                {
+                    home.map(item => (
+                    <div key={item}>
+                        <h1>{item.title}</h1>
+                        {HTMLReactParser(item.content)}
+                    </div>
+                ))
+                }
+            </div>
         )
     }
 }
