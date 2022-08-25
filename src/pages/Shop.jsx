@@ -1,5 +1,5 @@
 import React from 'react'
-import Products from '../components/Products';
+import ShopSection from '../components/ShopSection'
 
 const Shop = () => {
     return (
@@ -21,11 +21,13 @@ const Shop = () => {
                 </div>
                 <div className='col-sm-12 col-md-12 col-xl-9'>
                     <div className='title-listproduct'>
-                        <h3>Product List</h3> 
+                        <h3>Product List</h3>
                     </div>
-                    {
-                        <Products/>
-                    }
+                    <div className='list-product'>
+                        {
+                            <ShopSection />
+                        }
+                    </div>
                 </div>
             </div>
         </div>
