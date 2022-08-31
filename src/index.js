@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './scss/index.scss'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './assets/boxicons-2.0.7/css/boxicons.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './assets/css/animate.css';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import 'bootstrap/dist/js/bootstrap';
+import './scss/style.scss';
+import './assets/css/flaticon.css';
+import './assets/boxicons-2.0.7/css/boxicons.min.css';
 import Layout from './components/Layout';
 import { Provider } from 'react-redux';
-// import store from './redux/store';
 import store from './Redux/store';
 import reportWebVitals from './reportWebVitals';
 

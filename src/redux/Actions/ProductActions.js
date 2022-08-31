@@ -3,7 +3,7 @@ import { PRODUCT_LIST_FAIL, PRODUCT_LIST_REQUEST, PRODUCT_LIST_SUCCESS } from ".
 
 const PRODUCTS_API = `
 {
-  products {
+  products(first: 50) {
     nodes {
       ... on VariableProduct {
         id
@@ -24,7 +24,7 @@ const PRODUCTS_API = `
         slug
         sku
         shortDescription(format: RENDERED)
-        salePrice(format: RAW)
+        salePrice(format: FORMATTED)
         shippingClassId
         shippingRequired
         shippingTaxable
@@ -50,6 +50,8 @@ const PRODUCTS_API = `
           sourceUrl(size: MEDIUM)
         }
         databaseId
+        stockQuantity
+        stockStatus
       }
     }
     pageInfo {
@@ -80,4 +82,38 @@ export const listProduct = () => async (dispatch) => {
                 error.response && error.response.data.message ? error.response.data.message : error.message,
         });
     }
+}
+
+
+export const detailProduct = (slug) => async (dispatch) => {
+  const PRODUCT_API = `
+    product(id: "${slug}", idType: SLUG) {
+      id
+      name
+      slug
+      ... on SimpleProduct {
+        id
+        name
+      }
+    }`
+  try {
+      dispatch({ type: PRODUCT_LIST_REQUEST })
+      const data  = await 
+      axios(`http://localhost/wordpress/graphql/`, {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          data: JSON.stringify({query: PRODUCT_API})
+      })
+      .then((response) => console.log(response))
+      dispatch({
+          type: PRODUCT_LIST_SUCCESS,
+          playload: data
+      })
+  } catch (error) {
+      dispatch({
+          type: PRODUCT_LIST_FAIL,
+          playload:
+              error.response && error.response.data.message ? error.response.data.message : error.message,
+      });
+  }
 }
