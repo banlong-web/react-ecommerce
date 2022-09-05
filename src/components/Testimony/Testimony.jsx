@@ -11,7 +11,7 @@ const Testimony = () => {
                     <h2>Our satisfied customer says</h2>
                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
                 </div>
-                <Carousel showThumbs={false} labels={false} useKeyboardArrows={false} showArrows={false} showStatus={false} autoPlay={false} infiniteLoop={false}>
+                <Carousel showThumbs={false} labels={false} useKeyboardArrows={false} showArrows={false} showStatus={false} autoPlay={true} infiniteLoop={false}>
                     {
                         testimonies.map((item, index) => (
                             <div key={index}>

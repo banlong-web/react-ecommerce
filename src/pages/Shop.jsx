@@ -1,9 +1,13 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom'
 import ShopSection from '../components/ShopSection'
 
 const Shop = () => {
+    const path = useLocation();
     return (
-        <ShopSection/>
+        <div className='shop-page'>
+            <ShopSection path = {path.pathname}/>
+        </div>
     )
 }
 
