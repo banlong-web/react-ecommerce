@@ -32,7 +32,7 @@ const ProductsLoadMore = props => {
                   <div className='col-md-6 col-lg-3' key={index}>
                     <div className='product'>
                       <div className='img-prod'>
-                        <Link to={`shop/${item.slug}`}> <img src={item.image.sourceUrl} alt="" /> </Link>
+                        <Link to={`${props.path === '/shop'? item.slug : `shop/${item.slug}`}`}> <img src={item.image.sourceUrl} alt="" /> </Link>
                         {
                           item.onSale === true ? (
                             <span className='status'>{100 - ((parseInt(item.salePrice) / parseInt(item.regularPrice)) * 100)}%</span>
@@ -45,7 +45,7 @@ const ProductsLoadMore = props => {
                       </div>
                       <div className='content-prod'>
                         <div className='title-prod'>
-                          <h5><Link to={`shop/${item.slug}`}>{item.name}</Link></h5>
+                          <h5><Link to={`${props.path === '/shop'? item.slug : `shop/${item.slug}`}`}>{item.name}</Link></h5>
                           {
                             item.shortDescription ? (
                               <p>{HTMLReactParser(item.shortDescription)}</p>
